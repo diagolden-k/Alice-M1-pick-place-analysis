@@ -100,6 +100,23 @@ python ml/predict_episode.py --episode 2
 
 산출물: `ml/outputs/` (`ml_pipeline_report.md`, `episode_results.csv`, 모델 joblib, 그림)
 
+## 일반화 검증 (K-Fold / Permutation 등)
+
+```bash
+python3 ml/validate_generalization.py
+```
+
+| 프로토콜 | Accuracy | 의미 |
+|---|---:|---|
+| Optimistic 5-fold (전체 데이터로 top-25 선정) | ~0.94 | **과대평가** (selection leakage) |
+| Nested CV (하이퍼파라미터만 폴드 내부) | ~0.88 | 튜닝 낙관 보정 |
+| Fixed 10 domain features | ~0.81 | 위상 기반 고정 피처 |
+| **Honest 5-fold** (폴드마다 피처 재선정) | **~0.71** | 새 데이터 기대치에 더 가까움 |
+| Honest LOO | ~0.69 | 동일 |
+| Permutation (optimistic / honest) | p≈0.002 / 0.01 | 우연이 아님 |
+
+상세: `ml/outputs/validation/validation_report.md`
+
 ## 좌표계 참고
 
 CSV에 허리/베이스 관절이 없어 FK는 **torso_link 기준**입니다. 로봇 상세는 `ALICE_M1_ROBOT_INFO.md` 참고.
