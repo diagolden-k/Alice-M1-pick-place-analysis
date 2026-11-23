@@ -1,0 +1,40 @@
+{
+  "best_strategy": "physics_allowlist",
+  "best_features": [
+    "approach_track_err_std",
+    "approach_joint_speed_std",
+    "approach_speed_maxabs",
+    "grasp_acc_mag_mean",
+    "lift_duration",
+    "carry_right_vy_mean",
+    "carry_right_vz_mean",
+    "retreat_vy_mean",
+    "cand_open_duration",
+    "cand_open_duration_over_hold",
+    "prop_retreat_burst_jspeed",
+    "prop_retreat_burst_speed",
+    "prop_tilt_pitch_release",
+    "prop_z_release",
+    "prop_sparc_palm",
+    "prop_open_dur_ratio",
+    "prop_grasp_tight_std"
+  ],
+  "best_metrics": {
+    "n": 17,
+    "svm_acc": 0.875,
+    "logreg_acc": 0.9375,
+    "mean_corr": 0.25831513906402664,
+    "physics_coverage": 1.0,
+    "composite": 0.8920869721871946
+  },
+  "guidance": {
+    "exclude_how": [
+      "1) Start from physics allowlist (mechanism coverage), not from top-|d| of 267.",
+      "2) Corr-prune |r|>=0.85 (or 0.70 if still redundant) keeping higher |d| or clearer physics name.",
+      "3) Cap 1 feature per family (same base signal with mean/std/rms/maxabs).",
+      "4) Drop global_* and pure duration/frac unless mechanism-linked.",
+      "5) Optional: stability selection freq>=0.55 on a SMALL prefiltered pool.",
+      "6) Do NOT use VIF/corr alone without physics \u2014 they keep strong but opaque clones."
+    ]
+  }
+}

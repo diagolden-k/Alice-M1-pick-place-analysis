@@ -1,0 +1,19 @@
+{
+  "mean_physics_in_top25": 0.29600000000000004,
+  "mean_family_clone_frac_in_top25": 0.304,
+  "n_universe": 302,
+  "n_physics17": 17,
+  "n_broad": 207,
+  "best_policy": "fixed_physics17",
+  "best_acc": 0.875,
+  "fixed_physics_acc": 0.875,
+  "baseline_honest_top25_acc": 0.625,
+  "interpretation": [
+    "Honest is lower because each fold re-picks noisy top-|d| from a huge pool;",
+    "selected features reshuffle (low Jaccard) so the test fold sees unstable rules.",
+    "Constraining the pool (physics / family / corr) raises honest accuracy by",
+    "reducing variance of which features enter the model across folds.",
+    "Fixed physics17 is an upper reference for a pre-specified constrained set;",
+    "it is not fully honest if the list was tuned on the same 48 episodes."
+  ]
+}
