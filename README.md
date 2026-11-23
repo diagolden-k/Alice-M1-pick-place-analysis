@@ -68,12 +68,37 @@ python viz/visualize_analysis.py
 | `feature_influence_report.md` | 분석 리포트 |
 | `viz_*.png` | 위상·운동학·효과크기 시각화 |
 
-## 분석 한줄 요약
+## 분석 한줄 요약 (피처 영향)
 
 - 단계별 평균 효과크기: **grasp > carry_right > retreat > …**
 - 실패와 연관: 접근 시 tracking 흔들림·과속 (`approach_track_err_std`, `approach_*speed*`)
 - 성공과 연관: 또렷한 grasp 가속/jerk, retreat 시 왼쪽 치우기 (`retreat_vy_mean`)
-- 상위 피처 로지스틱 CV accuracy ≈ **0.85** (N=48, FDR 유의는 제한적)
+
+## ML 파이프라인 (Classification / Clustering / Metric)
+
+입력: `|Cohen's d|` 상위 25개 에피소드 피처. N=48이므로 딥시퀀스 대신 집약 피처 + 고전 ML.
+
+```bash
+python ml/run_pipeline.py
+python ml/predict_episode.py --episode 2
+```
+
+### 선정 결과
+
+| 과제 | 선정 | 성능 / 근거 |
+|---|---|---|
+| **Classification** | `SVM-RBF` (`C=3`, `gamma=scale`) | OOF F1 **0.943**, Acc **0.938** (logreg/RF/GB/kNN 등 대비 최고) |
+| **Clustering** | `GMM` **k=4** (PCA-8 임베딩) | 균형·해석성 반영 선정; success/fail보다 세분 |
+| **Quality Metric** | 해석 가능 가중합 + 0.25·P(success) | label 상관 **0.90**, success−fail gap **≈39점** |
+
+### 클러스터 이름
+
+- `CleanSuccess_FirmGrasp` — 또렷한 grasp, 짧은 lift (성공률 ≈87%)
+- `CleanSuccess_SmoothApproach` — 접근 tracking/속도 안정 (성공률 ≈81%)
+- `Fail_RoughApproach` — 접근 과속·불안정 (성공률 ≈10%)
+- `Fail_SlowLift_RoughApproach` — 거친 접근 + 긴 lift (성공률 0%)
+
+산출물: `ml/outputs/` (`ml_pipeline_report.md`, `episode_results.csv`, 모델 joblib, 그림)
 
 ## 좌표계 참고
 

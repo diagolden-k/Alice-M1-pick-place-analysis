@@ -1,0 +1,93 @@
+{
+  "formula": "score = 100 * (0.75 * sum_i w_i * u_i + 0.25 * P_success)",
+  "u_i": "robust [q05,q95] min-max; inverted if Cohen_d < 0",
+  "w_i": "|Cohen_d| normalized to sum 1",
+  "terms": [
+    {
+      "feature": "approach_track_err_std",
+      "direction": "invert",
+      "weight_|d|": 1.2847340787933652,
+      "q05": 0.024944372015544142,
+      "q95": 0.044564870277680003
+    },
+    {
+      "feature": "approach_speed_maxabs",
+      "direction": "invert",
+      "weight_|d|": 0.8241098589642163,
+      "q05": 0.11377337819209525,
+      "q95": 0.21431533581488232
+    },
+    {
+      "feature": "approach_joint_speed_std",
+      "direction": "invert",
+      "weight_|d|": 1.0013566120255473,
+      "q05": 0.08683751181978527,
+      "q95": 0.18643967093162944
+    },
+    {
+      "feature": "grasp_acc_mag_mean",
+      "direction": "as_is",
+      "weight_|d|": 0.8907106532460497,
+      "q05": 0.3607420050750607,
+      "q95": 1.4402193562122647
+    },
+    {
+      "feature": "lift_duration",
+      "direction": "invert",
+      "weight_|d|": 0.8560392419283419,
+      "q05": 0.6566666666666666,
+      "q95": 3.655
+    },
+    {
+      "feature": "carry_right_vy_mean",
+      "direction": "invert",
+      "weight_|d|": 1.0372978133122648,
+      "q05": -0.09074860801012524,
+      "q95": 1.1359935328159824e-05
+    },
+    {
+      "feature": "carry_right_vz_mean",
+      "direction": "as_is",
+      "weight_|d|": 0.8501015680210736,
+      "q05": -0.07770471783414312,
+      "q95": -0.016607078671444116
+    },
+    {
+      "feature": "retreat_vy_mean",
+      "direction": "as_is",
+      "weight_|d|": 0.8885946506296405,
+      "q05": 0.06840559904731178,
+      "q95": 0.12491958711726446
+    },
+    {
+      "feature": "global_jerk_mag_rms",
+      "direction": "as_is",
+      "weight_|d|": 0.19291636271143958,
+      "q05": 18.698856127189618,
+      "q95": 26.708355804559186
+    },
+    {
+      "feature": "place_speed_rms",
+      "direction": "as_is",
+      "weight_|d|": 0.43876891399808404,
+      "q05": 0.05805358714663157,
+      "q95": 0.12390148834843304
+    }
+  ],
+  "weights_normalized": {
+    "approach_track_err_std": 0.1554496834209759,
+    "approach_speed_maxabs": 0.09971527866717168,
+    "approach_joint_speed_std": 0.12116170256577162,
+    "grasp_acc_mag_mean": 0.10777381199137544,
+    "lift_duration": 0.10357865596487839,
+    "carry_right_vy_mean": 0.1255105000749318,
+    "carry_right_vz_mean": 0.1028602119348043,
+    "retreat_vy_mean": 0.10751778084666751,
+    "global_jerk_mag_rms": 0.023342408367018026,
+    "place_speed_rms": 0.05308996616640524
+  },
+  "corr_with_label": 0.8968243144008743,
+  "mean_success": 68.95573238830747,
+  "mean_fail": 30.279102315144044,
+  "gap": 38.67663007316342
+}
