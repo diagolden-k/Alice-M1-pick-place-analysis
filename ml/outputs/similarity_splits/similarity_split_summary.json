@@ -1,0 +1,147 @@
+{
+  "similarity_diagnostics": {
+    "n_clusters": 4,
+    "mean_within_cosine": 0.7898014094315894,
+    "mean_between_cosine": 1.0813585276101876,
+    "separation_ratio_between_over_within": 1.3691524409768125,
+    "cluster_sizes": [
+      {
+        "cluster": 0,
+        "n": 11,
+        "n_success": 5,
+        "n_fail": 6,
+        "mean_within_cosine": 0.8207560177536025
+      },
+      {
+        "cluster": 1,
+        "n": 16,
+        "n_success": 5,
+        "n_fail": 11,
+        "mean_within_cosine": 0.7588995413350332
+      },
+      {
+        "cluster": 2,
+        "n": 17,
+        "n_success": 16,
+        "n_fail": 1,
+        "mean_within_cosine": 0.8235761514016455
+      },
+      {
+        "cluster": 3,
+        "n": 4,
+        "n_success": 1,
+        "n_fail": 3,
+        "mean_within_cosine": 0.7559739272360763
+      }
+    ]
+  },
+  "results": [
+    {
+      "protocol": "mixed_stratified",
+      "feat_mode": "fixed_physics17",
+      "accuracy": 0.875,
+      "f1": 0.8888888888888888,
+      "n_scored": 48,
+      "mean_fold_acc": 0.8733333333333334,
+      "std_fold_acc": 0.04797118476649534,
+      "feature_jaccard": NaN
+    },
+    {
+      "protocol": "mixed_stratified",
+      "feat_mode": "honest_corr070_pool40",
+      "accuracy": 0.8541666666666666,
+      "f1": 0.8771929824561403,
+      "n_scored": 48,
+      "mean_fold_acc": 0.8555555555555555,
+      "std_fold_acc": 0.0779363462966675,
+      "feature_jaccard": 0.6089267285861713
+    },
+    {
+      "protocol": "similar_within",
+      "feat_mode": "fixed_physics17",
+      "accuracy": 0.8043478260869565,
+      "f1": 0.8085106382978723,
+      "n_scored": 46,
+      "mean_fold_acc": 0.9213333333333332,
+      "std_fold_acc": 0.14317976269167526,
+      "feature_jaccard": NaN
+    },
+    {
+      "protocol": "similar_within",
+      "feat_mode": "honest_corr070_pool40",
+      "accuracy": 0.8260869565217391,
+      "f1": 0.84,
+      "n_scored": 46,
+      "mean_fold_acc": 0.8993333333333333,
+      "std_fold_acc": 0.22193492539731352,
+      "feature_jaccard": 0.49858866934354884
+    },
+    {
+      "protocol": "dissimilar_groupk",
+      "feat_mode": "fixed_physics17",
+      "accuracy": 0.6458333333333334,
+      "f1": 0.711864406779661,
+      "n_scored": 48,
+      "mean_fold_acc": 0.6565842245989305,
+      "std_fold_acc": 0.07826905739511829,
+      "feature_jaccard": NaN
+    },
+    {
+      "protocol": "dissimilar_groupk",
+      "feat_mode": "honest_corr070_pool40",
+      "accuracy": 0.625,
+      "f1": 0.7096774193548387,
+      "n_scored": 48,
+      "mean_fold_acc": 0.6391209893048129,
+      "std_fold_acc": 0.15469732327895702,
+      "feature_jaccard": 0.4350946536301228
+    },
+    {
+      "protocol": "similar_nn_train",
+      "feat_mode": "fixed_physics17",
+      "accuracy": 0.875,
+      "f1": 0.8888888888888888,
+      "n_scored": 48,
+      "mean_fold_acc": 0.875,
+      "std_fold_acc": 0.33071891388307384,
+      "feature_jaccard": NaN
+    },
+    {
+      "protocol": "similar_nn_train",
+      "feat_mode": "honest_corr070_pool40",
+      "accuracy": 0.7708333333333334,
+      "f1": 0.8070175438596491,
+      "n_scored": 48,
+      "mean_fold_acc": 0.7708333333333334,
+      "std_fold_acc": 0.4202966875381669,
+      "feature_jaccard": 0.3918090508242887
+    },
+    {
+      "protocol": "dissimilar_nn_train",
+      "feat_mode": "fixed_physics17",
+      "accuracy": 0.7083333333333334,
+      "f1": 0.72,
+      "n_scored": 48,
+      "mean_fold_acc": 0.7083333333333334,
+      "std_fold_acc": 0.45452967144315476,
+      "feature_jaccard": NaN
+    },
+    {
+      "protocol": "dissimilar_nn_train",
+      "feat_mode": "honest_corr070_pool40",
+      "accuracy": 0.75,
+      "f1": 0.7777777777777778,
+      "n_scored": 48,
+      "mean_fold_acc": 0.75,
+      "std_fold_acc": 0.4330127018922193,
+      "feature_jaccard": 0.3900934533276198
+    }
+  ],
+  "interpretation": [
+    "similar_within / similar_nn_train: train & test come from nearby episodes \u2192 easier if local patterns dominate.",
+    "dissimilar_groupk / dissimilar_nn_train: test is far from train \u2192 stress test for generalization.",
+    "mixed_stratified: random mix baseline (typical CV).",
+    "If similar >> dissimilar, the model partly relies on local episode neighborhoods, not only global tip-over mechanisms.",
+    "If both stay high with physics features, signal is more mechanism-stable across styles."
+  ]
+}

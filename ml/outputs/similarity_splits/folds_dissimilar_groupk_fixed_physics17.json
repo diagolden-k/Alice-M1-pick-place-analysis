@@ -1,0 +1,38 @@
+[
+  {
+    "fold": 0,
+    "n_train": 37,
+    "n_test": 11,
+    "n_feat": 17,
+    "acc": 0.5454545454545454,
+    "train_pos": 22,
+    "test_pos": 5
+  },
+  {
+    "fold": 1,
+    "n_train": 32,
+    "n_test": 16,
+    "n_feat": 17,
+    "acc": 0.625,
+    "train_pos": 22,
+    "test_pos": 5
+  },
+  {
+    "fold": 2,
+    "n_train": 31,
+    "n_test": 17,
+    "n_feat": 17,
+    "acc": 0.7058823529411765,
+    "train_pos": 11,
+    "test_pos": 16
+  },
+  {
+    "fold": 3,
+    "n_train": 44,
+    "n_test": 4,
+    "n_feat": 17,
+    "acc": 0.75,
+    "train_pos": 26,
+    "test_pos": 1
+  }
+]
