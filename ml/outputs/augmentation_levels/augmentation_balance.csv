@@ -1,0 +1,5 @@
+aug_level,n_rows,n_success,n_fail,success_frac
+none,48,27,21,0.5625
+light,96,54,42,0.5625
+medium,192,108,84,0.5625
+heavy,384,216,168,0.5625

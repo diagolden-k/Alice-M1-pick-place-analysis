@@ -1,0 +1,67 @@
+{
+  "pool_sizes": {
+    "pool17": 17,
+    "pool40": 40,
+    "pool55": 61,
+    "pool70": 73,
+    "full": 302
+  },
+  "highlight": [
+    {
+      "pool": "pool17",
+      "pool_size": 17,
+      "best_honest_policy": "pool17_topk15",
+      "best_honest_acc": 0.875,
+      "best_honest_jaccard": 0.8419117647058822,
+      "topk15_acc": 0.875,
+      "corr070_15_acc": 0.8541666666666666,
+      "fixed_acc": 0.875
+    },
+    {
+      "pool": "pool40",
+      "pool_size": 40,
+      "best_honest_policy": "pool40_corr085_20",
+      "best_honest_acc": 0.875,
+      "best_honest_jaccard": 0.6834113712374581,
+      "topk15_acc": 0.7916666666666666,
+      "corr070_15_acc": 0.8541666666666666,
+      "fixed_acc": 0.8541666666666666
+    },
+    {
+      "pool": "pool55",
+      "pool_size": 61,
+      "best_honest_policy": "pool55_corr085_20",
+      "best_honest_acc": 0.8125,
+      "best_honest_jaccard": 0.5953276353276353,
+      "topk15_acc": 0.7291666666666666,
+      "corr070_15_acc": 0.8125,
+      "fixed_acc": 0.8958333333333334
+    },
+    {
+      "pool": "pool70",
+      "pool_size": 73,
+      "best_honest_policy": "pool70_corr070_15",
+      "best_honest_acc": 0.7916666666666666,
+      "best_honest_jaccard": 0.5124287992709047,
+      "topk15_acc": 0.7083333333333334,
+      "corr070_15_acc": 0.7916666666666666,
+      "fixed_acc": 0.7916666666666666
+    },
+    {
+      "pool": "full302",
+      "pool_size": 302,
+      "best_honest_policy": "full302_corr085_15",
+      "best_honest_acc": 0.6666666666666666,
+      "best_honest_jaccard": 0.23430236430236429,
+      "topk15_acc": NaN,
+      "corr070_15_acc": NaN,
+      "fixed_acc": NaN
+    }
+  ],
+  "takeaway": [
+    "Expanding the physics pool from 17 to ~40\u201355 still avoids full-universe fishing.",
+    "Honest top-k / corr-prune inside the expanded pool should stay closer to pool17",
+    "than to unconstrained top25, if mechanisms remain tip-over relevant.",
+    "If accuracy collapses toward full302, the extras reintroduced fold-noise clones."
+  ]
+}
